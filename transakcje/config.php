@@ -1,0 +1,37 @@
+<?php
+ob_start();
+
+// OKREŚLENIE POŁOŻENIA STRONY W SERWISIE - DEFINICJA <BASE ... />
+$AbsoluteURL = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
+
+$dirCat = dirname($_SERVER['PHP_SELF']);
+$AbsoluteURL .= $_SERVER['HTTP_HOST'];
+$AbsoluteURL .= $dirCat != '\\' ? $dirCat : "";
+$slash = substr($AbsoluteURL, -1);
+
+$NewURL = $slash != '/' ? $AbsoluteURL.'/' : $AbsoluteURL;
+
+
+// STAŁE DLA BAZY DANYCH
+define('DB_SERVER', 'localhost:8889');
+define('DB_USERNAME', 'root2');
+define('DB_PW', 'root');
+define('DB_DB', 'supercms');
+
+// STAŁA DLA ADRESU I LOKALIZACJI APLIKACJI
+define('SERVER_ADDRESS', $NewURL);
+
+// STAŁA DLA LOKALIZACJI KATALOGÓW I PLIKÓW
+define('DS', "/", true);
+define('ClassFolder', 'CLASS'.DS, true);
+define('ManagerFolder', 'CLASS'.DS.'Managers'.DS, true);
+define('LogFolder', 'LOG'.DS, true);
+
+// Magiczna funkcja automatycznie ładująca klasy wg. zapotrzebowania
+function __autoload($className) {
+    @include_once(ClassFolder.$className.".class.php");
+    @include_once(ManagerFolder.$className.".class.php");
+    
+}
+
+?>
