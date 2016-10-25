@@ -42,27 +42,26 @@ class DatabaseManager {
             return false;
             
         } else {
-            
+
             $resultArray = Array();
-                
-                while(($row = $result->fetch_array(MYSQLI_ASSOC)) !== NULL) {
-                
-                    $resultArray[] = $row;
-                }
-            
+
+            while (($row = $result->fetch_array(MYSQLI_ASSOC)) !== NULL) {
+
+                $resultArray[] = $row;
+            }
         }
-        
         if(count($resultArray) > 0) {
                 return $resultArray;
             } else {
                 LogFile::AddLog("Zapytanie bazodanowe zwróciło pusty wynik!", __LINE__, __FILE__);
                 return false;
             }
-        
         mysqli_close($conn);
         
     }
-    
+
+
+
     static public function selectData($TABLE, $COLUMNS = Array("*"), $WHERE = Array(), $LOGIC_OPER = "=", $OPER = "AND") {
         
         $conn = self::getConnection();
@@ -77,7 +76,7 @@ class DatabaseManager {
             }
         }
         
-        $SQL = rtrim($SQL, ',');
+        $SQL = rtrim($SQL, ','); //usuwanie przecinku ,
         
         $SQL .= " FROM {$TABLE}";
         
@@ -86,10 +85,10 @@ class DatabaseManager {
             $SQL .= " WHERE ";
             
             foreach($WHERE as $key => $val) {
-                $SQL .= $key.$LOGIC_OPER."'".$val."' ".$OPER." ";
+                $SQL .= $key.$LOGIC_OPER."'".$val."' ".$OPER." "; //KLUCZ = > WARTOść
             }
             
-            $SQL = substr($SQL, 0, strlen($SQL)-(strlen($OPER)+2));
+            $SQL = substr($SQL, 0, strlen($SQL)-(strlen($OPER)+2));  //chcemy usunąć to dla ostatniego ///Całego stringu - strin + 2 znaki spacji
             
         }
         

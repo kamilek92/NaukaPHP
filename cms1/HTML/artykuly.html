@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+<meta name="description" content="Przykładowy opis" />
+<meta name="keywords" content="Słowa kluczowe" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="pl" />
+<title>Przykładowy tytuł</title>
+<link rel="stylesheet" href="css/screen.css" media="screen" type="text/css"  />
+<link rel="stylesheet" href="css/jquery.rating.css" media="screen" type="text/css"  />
+<script type="text/javascript" src="JS/jQuery.js"></script>
+<script src="JS/jquery.rating.js" type="text/javascript" charset="utf-8"></script>
+<script src="JS/jquery.MetaData.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+<script type="text/javascript" language="javascript">
+
+$(function(){ 
+ 
+    $(".star").rating();
+
+});
+
+</script>
+
+<div id="header">   
+  <div class="content">       
+<h1><a href="/">Design klasy biznes</a></h1>        
+          <ul>
+           	  <li><a href="index.html">Home</a></li>
+              <li><a href="produkty.html">Usługi i ceny</a></li>
+           	  <li><a href="artykuly.html">Artykuły</a></li>
+           	  <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+   	  </div>
+	</div>
+    
+    <div id="slogan" class="artykuly">
+  <div class="content">
+        	<div id="motto" class="motto-artykuly"><a href="#">Busines Design</a></div>
+        </div>
+    </div>
+    
+    <div id="main">
+    	<div class="content">
+            	<div class="box-artykuly produkty-opis">
+                
+                	<img src="images/naglowek1-produkty.jpg" alt="HEADER" id="art-header" />
+                    <div id="art-tools">
+                    
+                        <ul>
+                        
+                            <li class="ilosc">
+                            
+                                <label for="ilosc">Wyświetl </label>
+                            
+                                <select name="ilosc" id="ilosc">
+                                
+                                    <option value="1">po 1 artykule</option>
+                                    <option value="3">po 3 artykuły</option>
+                                    <option value="5">po 5 artykułów</option>
+                                    <option value="10">po 10 artykułów</option>
+                                    <option value="20">po 20 artykułów</option>
+                                    <option value="ALL">wszystkie artykuły</option>
+                                
+                                </select>
+                            </li>
+                            
+                            <li class="sort">
+                            
+                                <label for="sort">posortowane wg. </label>
+                            
+                                <select name="sort" id="sort">
+                                
+                                    <option value="type1">Tytułu</option>
+                                    <option value="type2">Daty dodania</option>
+                                    <option value="type3">Autora</option>
+                                    <option value="type4">Rankingu</option>
+                                
+                                </select>
+                            </li>
+                            
+                            <li class="sort-asc-desc">
+                                <select name="sort-asc-desc" id="sort-asc-desc">
+                                
+                                    <option value="ASC">Rosnąco</option>
+                                    <option value="DESC">Malejąco</option>
+                                
+                                </select>
+                            </li>
+                            
+                            <li class="btn">
+                            
+                                <input type="button" name="submit-filter" class="submit-filter" value="filtruj" />
+                            
+                            </li>
+                        
+                        </ul>
+                    
+                    </div>
+                    
+                    <div class="artykul">
+                    
+                        <h3 class="title">Tytuł artykułu nr1</h3>
+                        <p class="sub-title">Dodano: 10.01.2011 przez Mateusz Manaj</p>
+                            
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum 
+                        enim ut risus molestie nec pretium urna faucibus. Donec malesuada, neque 
+                        sit amet sodales tincidunt, eros velit lobortis nibh, sed pellentesque lorem 
+                        enim eget sapien. Ut scelerisque faucibus metus, et varius elit luctus quis. 
+                        Etiam fermentum, erat vitae porta ornare, metus nisi sodales urna, eget 
+                        egestas ligula velit quis lorem. Nunc vestibulum tempus porta. Integer 
+                        scelerisque malesuada lacus tempor mollis. Quisque convallis ornare purus, 
+                        nec lacinia massa euismod vitae.
+                        
+                        <form id="art-rating">
+                            <input class="star" type="radio" name="test-1-rating-2" value="10" title="Najgorszy jaki czytałem/łam!"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="20" title="W sumie, nie taki zły :)"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="30" title="Można w nim znaleźć ciekawe informacje"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="40" title="No, no... :)"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="50" title="Super-hiper-ekstra artykuł!"/>
+                            <span id="hover-test" style="margin:0 0 0 20px;">Zaloguj się, aby móc oceniać!</span>
+                        </form>
+                    
+                    </div>
+                    
+                    <img src="images/hr.gif" alt="HR" id="hr" />
+                    
+                    <div class="artykul">
+                    
+                        <h3 class="title">Tytuł artykułu nr1</h3>
+                        <p class="sub-title">Dodano: 10.01.2011 przez Mateusz Manaj</p>
+                            
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum 
+                        enim ut risus molestie nec pretium urna faucibus. Donec malesuada, neque 
+                        sit amet sodales tincidunt, eros velit lobortis nibh, sed pellentesque lorem 
+                        enim eget sapien. Ut scelerisque faucibus metus, et varius elit luctus quis. 
+                        Etiam fermentum, erat vitae porta ornare, metus nisi sodales urna, eget 
+                        egestas ligula velit quis lorem. Nunc vestibulum tempus porta. Integer 
+                        scelerisque malesuada lacus tempor mollis. Quisque convallis ornare purus, 
+                        nec lacinia massa euismod vitae.
+                        
+                        <form id="art-rating">
+                            <input class="star" type="radio" name="test-1-rating-2" value="10" title="Najgorszy jaki czytałem/łam!"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="20" title="W sumie, nie taki zły :)"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="30" title="Można w nim znaleźć ciekawe informacje"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="40" title="No, no... :)"/>
+                            <input class="star" type="radio" name="test-1-rating-2" value="50" title="Super-hiper-ekstra artykuł!"/>
+                            <span id="hover-test" style="margin:0 0 0 20px;">Zaloguj się, aby móc oceniać!</span>
+                        </form>
+                    
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+    	<div class="content">
+       	  <p id="footer-image"><a href="#"><img src="images/przycisk-artykuly.jpg" alt="pobierz cennik" /></a></p>
+        	<ul>
+            	<li><a href="#">Webdesign</a></li>
+            	<li><a href="#">e-commerce</a></li>
+            	<li><a href="#">Corporate design</a></li>
+            	<li><a href="#">Kampanie AdWords</a></li>
+            	<li><a href="#">Marketing internetowy</a></li>
+            	<li><a href="#">Usługi hostingowe</a></li>
+            	<li><a href="#">Analizy biznesowe</a></li>
+            	<li><a href="#">Pozycjonowanie</a></li>
+            	<li><a href="#">Raporty skuteczności</a></li>
+            </ul>
+            <p id="footer-copyright">Copyright &copy; 2011 Designer: Grzegorz Róg | Coder: Mateusz Manaj</p>
+        </div>
+    </div>
+     
+</body>
+</html>

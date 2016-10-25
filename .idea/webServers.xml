@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1ca2e5f0-5fa3-4924-96fd-58216b502c7e" name="Ankieta" url="http://mobile.kamil92.vdl.pl/ankieta">
+        <fileTransfer host="kamil92.vdl.pl" port="21" rootFolder="/domains/kamil92.vdl.pl/public_html/mobile/ankieta">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

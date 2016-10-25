@@ -1,5 +1,5 @@
 <?php
-//require_once("ustawienia.php");
+require_once("ustawienia.php");
 /**
  * Created by PhpStorm.
  * User: kamilciesielski
@@ -15,9 +15,9 @@
 
 
 echo 'Kamil';
-//$o2 = new Czlowiek();
-//$o2->czlowiek="Kamil";
-//echo $o2->czlowiek;
+$o2 = new Czlowiek();
+$o2->czlowiek="Kamil";
+echo $o2->czlowiek;
 
 
 //echo Pies::dajNazwe();

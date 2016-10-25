@@ -1,0 +1,5 @@
+<?php
+
+Modul::load("rejestracja");
+
+

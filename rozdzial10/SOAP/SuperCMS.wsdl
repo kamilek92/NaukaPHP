@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:tns="http://new.webservice.namespace" 
+    targetNamespace="http://new.webservice.namespace">
+	
+    <!--- TYPES START -->
+    
+    <wsdl:types>
+		<xs:schema targetNamespace="http://new.webservice.namespace" elementFormDefault="qualified"/>
+	</wsdl:types>
+    
+    <!--- TYPES END -->
+    
+    <!--- MESSAGE START -->
+    
+	<wsdl:message name="getArticleListRequest">
+		<wsdl:part name="ID" type="xs:integer"/>
+	</wsdl:message>
+    
+	<wsdl:message name="getArticleListResponse">
+		<wsdl:part name="ItemID" type="xs:integer"/>
+	</wsdl:message>
+    
+    <wsdl:message name="getAppNameRequest"/>
+    
+	<wsdl:message name="getAppNameResponse">
+		<wsdl:part name="ItemID" type="xs:string"/>
+	</wsdl:message>
+    
+    <!--- MESSAGE END -->
+    
+    <!--- OPERATION START -->
+    
+	<wsdl:portType name="SoftShopPortType">
+    
+		<wsdl:operation name="getArticleList">
+			<wsdl:input message="tns:getArticleListRequest"/>
+			<wsdl:output message="tns:getArticleListResponse"/>
+		</wsdl:operation>
+        
+        <wsdl:operation name="getAppName">
+			<wsdl:input message="tns:getAppNameRequest"/>
+			<wsdl:output message="tns:getAppNameResponse"/>
+		</wsdl:operation>
+        
+	</wsdl:portType>
+    
+    <!--- OPERATION END -->
+    
+    <!--- BINDING START -->
+    
+	<wsdl:binding name="SoftShopBinding" type="tns:SoftShopPortType">
+    
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+		<wsdl:operation name="getArticleList">
+        
+			<soap:operation soapAction="urn:getArticleList"/>
+            
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</wsdl:input>
+            
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</wsdl:output>
+            
+		</wsdl:operation>
+        
+        <wsdl:operation name="getAppName">
+        
+			<soap:operation soapAction="urn:getAppName"/>
+            
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</wsdl:input>
+            
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</wsdl:output>
+            
+		</wsdl:operation>
+        
+	</wsdl:binding>
+    
+    <!--- BINDING END -->
+    
+	<wsdl:service name="SoftShop">
+    
+		<wsdl:port name="SoftShopPort" binding="tns:SoftShopBinding">
+			<soap:address location="http://kurs-php-zaawansowany.eduweb.pl/SOAP/SERVER.php"/>
+		</wsdl:port>
+        
+	</wsdl:service>
+    
+</wsdl:definitions>

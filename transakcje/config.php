@@ -14,7 +14,7 @@ $NewURL = $slash != '/' ? $AbsoluteURL.'/' : $AbsoluteURL;
 
 // STAŁE DLA BAZY DANYCH
 define('DB_SERVER', 'localhost:8889');
-define('DB_USERNAME', 'root2');
+define('DB_USERNAME', 'root');
 define('DB_PW', 'root');
 define('DB_DB', 'supercms');
 
@@ -22,15 +22,17 @@ define('DB_DB', 'supercms');
 define('SERVER_ADDRESS', $NewURL);
 
 // STAŁA DLA LOKALIZACJI KATALOGÓW I PLIKÓW
-define('DS', "/", true);
-define('ClassFolder', 'CLASS'.DS, true);
-define('ManagerFolder', 'CLASS'.DS.'Managers'.DS, true);
 define('LogFolder', 'LOG'.DS, true);
+define("LIBSFolder", "Libs".PATCH_SEPARATOR);
+
+
+set_include_path(get_include_path(). PATCH_SEPERATOR . "CLASS");
+set_include_path(get_include_path(). PATCH_SEPERATOR . "CLASS/Managers");
+set_include_path(get_include_path(). PATCH_SEPERATOR . "Libs");
 
 // Magiczna funkcja automatycznie ładująca klasy wg. zapotrzebowania
 function __autoload($className) {
-    @include_once(ClassFolder.$className.".class.php");
-    @include_once(ManagerFolder.$className.".class.php");
+    include_once($className.".class.php");
     
 }
 

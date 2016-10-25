@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+<meta name="description" content="Przykładowy opis" />
+<meta name="keywords" content="Słowa kluczowe" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="pl" />
+<title>Przykładowy tytuł</title>
+<link rel="stylesheet" href="css/screen.css" media="screen" type="text/css"  />
+<link rel="stylesheet" href="css/jquery.rating.css" media="screen" type="text/css"  />
+<script type="text/javascript" src="JS/jQuery.js"></script>
+<script type="text/javascript" src="JS/jquery.validate.js"></script>
+<script src="JS/jquery.MetaData.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+<script type="text/javascript" language="javascript">
+
+$(function(){ 
+ 
+    $("#lostpw-form").validate({
+	   
+                debug: true,
+                submitHandler: function(form) {
+
+                    //form.submit();
+                    alert("Użytkownik gotowy do przypomnienia hasła!");
+                        
+                },
+                errorElement: "div",
+    			errorContainer: $("#warning, #summary"),
+    			errorPlacement: function(error, element) {
+    				error.appendTo( element.parent("td").next("td") );
+    			},
+                success: function(label) {
+                 label.addClass("valid").text("Dane wprowadzone poprawnie!")
+               },
+                messages: {
+                
+                    nick: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 5 znaki',
+                        maxlength: 'Podano więcej niż 25 znaków'
+                    },
+                    mail: {
+                        required: 'To pole jest obowiązkowe!',
+                        email: 'Podano nie prawidłowy e-mail'
+                    }
+                }
+	});
+
+});
+
+</script>
+
+<div id="header">   
+  <div class="content">       
+<h1><a href="/">Design klasy biznes</a></h1>        
+          <ul>
+           	  <li><a href="index.html">Home</a></li>
+              <li><a href="produkty.html">Usługi i ceny</a></li>
+           	  <li><a href="artykuly.html">Artykuły</a></li>
+           	  <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+   	  </div>
+	</div>
+    
+    <div id="slogan" class="artykuly">
+  <div class="content">
+        	<div id="motto" class="motto-artykuly"><a href="#">Busines Design</a></div>
+        </div>
+    </div>
+    
+    <div id="main">
+    	<div class="content">
+            	<div class="box-artykuly produkty-opis">
+                
+                	<img src="images/naglowek1-lostpw.jpg" alt="HEADER" id="lostpw-header" />
+                    <div id="lostpw-tools" class="formularz">
+                    
+                        <form name="lostpw-form" id="lostpw-form" action="poster.php" method="POST">
+                    
+                    <table class="objTable">
+                        
+                        <tbody>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Podaj nick:</td>
+                                <td><input type="text" value="" name="nick" class="required" minlength="5" maxlength="25" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Twój e-mail:</td>
+                                <td><input type="text" value="" name="mail" class="required email" /></td>
+                                <td></td>
+                            </tr>
+                            
+                        </tbody>
+                        
+                    </table>
+                    
+                       <br /><br />
+                       
+                       <input type="submit" name="submit-form" class="submit-form" value="Przypomnij" />
+                       <input type="reset" name="submit-form" class="reset-form" value="Reset" /><br class="clear" />
+                       </form>
+                       
+                       <br /><br />
+                    
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+    	<div class="content">
+       	  <p id="footer-image"><a href="#"><img src="images/przycisk-artykuly.jpg" alt="pobierz cennik" /></a></p>
+        	<ul>
+            	<li><a href="#">Webdesign</a></li>
+            	<li><a href="#">e-commerce</a></li>
+            	<li><a href="#">Corporate design</a></li>
+            	<li><a href="#">Kampanie AdWords</a></li>
+            	<li><a href="#">Marketing internetowy</a></li>
+            	<li><a href="#">Usługi hostingowe</a></li>
+            	<li><a href="#">Analizy biznesowe</a></li>
+            	<li><a href="#">Pozycjonowanie</a></li>
+            	<li><a href="#">Raporty skuteczności</a></li>
+            </ul>
+            <p id="footer-copyright">Copyright &copy; 2011 Designer: Grzegorz Róg | Coder: Mateusz Manaj</p>
+        </div>
+    </div>
+     
+</body>
+</html>

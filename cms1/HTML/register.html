@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+<meta name="description" content="Przykładowy opis" />
+<meta name="keywords" content="Słowa kluczowe" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="pl" />
+<title>Przykładowy tytuł</title>
+<link rel="stylesheet" href="css/screen.css" media="screen" type="text/css"  />
+<script type="text/javascript" src="JS/jQuery.js"></script>
+<script type="text/javascript" src="JS/jquery.validate.js"></script>
+<script src="JS/jquery.MetaData.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+<script type="text/javascript" language="javascript">
+
+$(function(){ 
+ 
+    $("#reg-form").validate({
+	   
+                debug: true,
+                submitHandler: function(form) {
+
+                    //form.submit();
+                    alert("Użytkownik gotowy do rejestracji w systemie :)");
+                        
+                },
+                errorElement: "div",
+    			errorContainer: $("#warning, #summary"),
+    			errorPlacement: function(error, element) {
+    				error.appendTo( element.parent("td").next("td") );
+    			},
+                success: function(label) {
+                 label.addClass("valid").text("Dane wprowadzone poprawnie!")
+               },
+                messages: {
+                
+                    name: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 3 znaki',
+                        maxlength: 'Podano więcej niż 20 znaków'
+                    },
+                    surname: {
+                        required: 'To pole jest obowiązkowe!',
+                        maxlength: 'Podano więcej niż 25 znaków'
+                    },
+                    nick: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 5 znaki',
+                        maxlength: 'Podano więcej niż 25 znaków'
+                    },
+                    pass1: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 5 znaków',
+                        maxlength: 'Podano więcej niż 50 znaków'
+                    },
+                    pass2: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 5 znaków',
+                        maxlength: 'Podano więcej niż 50 znaków',
+                        equalTo: 'To powtórzone hasło musi być identyczne z oryginalnym'
+                    },
+                    mail: {
+                        required: 'To pole jest obowiązkowe!',
+                        email: 'Podano nie prawidłowy e-mail'
+                    }
+                },
+               rules: {
+                pass1: true,
+                pass2: {
+                  equalTo: "#pass1"
+                }
+              }
+	});
+
+});
+
+</script>
+
+<div id="header">   
+  <div class="content">       
+<h1><a href="/">Design klasy biznes</a></h1>        
+          <ul>
+           	  <li><a href="index.html">Home</a></li>
+              <li><a href="produkty.html">Usługi i ceny</a></li>
+           	  <li><a href="artykuly.html">Artykuły</a></li>
+           	  <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+   	  </div>
+	</div>
+    
+    <div id="slogan" class="artykuly">
+  <div class="content">
+        	<div id="motto" class="motto-artykuly"><a href="#">Busines Design</a></div>
+        </div>
+    </div>
+    
+    <div id="main">
+    	<div class="content">
+            	<div class="box-artykuly produkty-opis">
+                
+                	<img src="images/naglowek1-rejestracja.jpg" alt="HEADER" id="reg-header" />
+                    <div id="reg-tools" class="formularz">
+                    
+                        <form name="reg-form" id="reg-form" action="poster.php" method="POST">
+                    
+                    <table class="objTable">
+                        
+                        <tbody>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Podaj imię:</td>
+                                <td><input type="text" value="" name="name" class="required" minlength="3" maxlength="20" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Podaj nazwisko:</td>
+                                <td><input type="text" value="" name="surname" class="required" minlength="3" maxlength="25" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Podaj nick:</td>
+                                <td><input type="text" value="" name="nick" class="required" minlength="5" maxlength="25" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Data urodzenia:</td>
+                                <td><select name="day" class="birthdate day">
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                    </select>
+                                    <select name="month" class="birthdate month">
+                                            <option value="01">Styczeń</option>
+                                            <option value="02">Luty</option>
+                                            <option value="03">Marzec</option>
+                                            <option value="04">Kwiecień</option>
+                                            <option value="05">Maj</option>
+                                            <option value="06">Czerwiec</option>
+                                            <option value="07">Lipiec</option>
+                                            <option value="08">Sierpień</option>
+                                            <option value="09">Wrzesień</option>
+                                            <option value="10">Październik</option>
+                                            <option value="11">Listopad</option>
+                                            <option value="12">Grudzień</option>
+                                    </select>
+                                    <select name="year" class="birthdate year">
+                                            <option value="1970">1970</option>
+                                            <option value="1971">1971</option>
+                                            <option value="1972">1972</option>
+                                            <option value="1973">1973</option>
+                                            <option value="1974">1974</option>
+                                            <option value="1975">1975</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Podaj hasło:</td>
+                                <td><input type="text" value="" name="pass1" id="pass1" class="required" minlength="5" maxlength="50" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Powtórz hasło:</td>
+                                <td><input type="text" value="" name="pass2" id="pass2" class="required" minlength="5" maxlength="50" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span class="star">*</span> Twój e-mail:</td>
+                                <td><input type="text" value="" name="mail" class="required email" /></td>
+                                <td></td>
+                            </tr>
+                            
+                        </tbody>
+                        
+                    </table>
+                    
+                       <br /><br />
+                       
+                       <input type="submit" name="submit-form" class="submit-form" value="Zarejestruj" />
+                       <input type="reset" name="submit-form" class="reset-form" value="Reset" /><br class="clear" />
+                       </form>
+                       
+                       <br /><br />
+                    
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+    	<div class="content">
+       	  <p id="footer-image"><a href="#"><img src="images/przycisk-artykuly.jpg" alt="pobierz cennik" /></a></p>
+        	<ul>
+            	<li><a href="#">Webdesign</a></li>
+            	<li><a href="#">e-commerce</a></li>
+            	<li><a href="#">Corporate design</a></li>
+            	<li><a href="#">Kampanie AdWords</a></li>
+            	<li><a href="#">Marketing internetowy</a></li>
+            	<li><a href="#">Usługi hostingowe</a></li>
+            	<li><a href="#">Analizy biznesowe</a></li>
+            	<li><a href="#">Pozycjonowanie</a></li>
+            	<li><a href="#">Raporty skuteczności</a></li>
+            </ul>
+            <p id="footer-copyright">Copyright &copy; 2011 Designer: Grzegorz Róg | Coder: Mateusz Manaj</p>
+        </div>
+    </div>
+     
+</body>
+</html>

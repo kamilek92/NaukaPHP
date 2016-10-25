@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+<meta name="description" content="Przykładowy opis" />
+<meta name="keywords" content="Słowa kluczowe" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="pl" />
+<title>Przykładowy tytuł</title>
+<link rel="stylesheet" href="css/screen.css" media="screen" type="text/css"  />
+<script type="text/javascript" src="JS/jQuery.js"></script>
+<script type="text/javascript" src="JS/jquery.validate.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript" language="javascript">
+
+$(document).ready(function() {
+	$("#kontakt-form").validate({
+	   
+                debug: true,
+                submitHandler: function(form) {
+
+                    //form.submit();
+                    alert("Mail gotowy do wysłania!");
+                        
+                },
+                errorElement: "div",
+    			errorContainer: $("#warning, #summary"),
+    			errorPlacement: function(error, element) {
+    				error.appendTo( element.parent("td").next("td") );
+    			},
+                success: function(label) {
+                 label.addClass("valid").text("Dane wprowadzone poprawnie!")
+               },
+                messages: {
+                
+                    name: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 3 znaki'
+                    },
+                    surname: {
+                        required: 'To pole jest obowiązkowe!',
+                        email: 'Podano nie prawidłowy adres e-mail'
+                    },
+                    subject: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 10 znaków'
+                    },
+                    msg: {
+                        required: 'To pole jest obowiązkowe!',
+                        minlength: 'Podano mniej niż 20 znaków'
+                    }
+                }
+	});
+    
+});
+
+</script>
+
+<div id="header">   
+  <div class="content">       
+<h1><a href="/">Design klasy biznes</a></h1>        
+          <ul>
+           	  <li><a href="index.html">Home</a></li>
+              <li><a href="produkty.html">Usługi i ceny</a></li>
+           	  <li><a href="artykuly.html">Artykuły</a></li>
+           	  <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+   	  </div>
+	</div>
+    
+    <div id="slogan" class="produkty">
+  <div class="content">
+        	<div id="motto" class="motto-produkty"><a href="#">Busines Design</a></div>
+        </div>
+    </div>
+    
+    <div id="main">
+    	<div class="content">
+            	<div class="box-kontakt produkty-opis">
+                
+                	<h2>Formularz kontaktowy</h2>
+                    
+                    <div class="formularz">
+                    
+                    <form name="kontakt-form" id="kontakt-form" action="poster.php" method="POST">
+                    
+                    <table class="objTable">
+                        
+                        <tbody>
+                            
+                            <tr>
+                                <td>Podaj imię:</td>
+                                <td><input type="text" value="" name="name" class="required" minlength="3" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Twój e-mail:</td>
+                                <td><input type="text" value="" name="surname" class="required email" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Temat:</td>
+                                <td><input type="text" value="" name="subject" class="subject" class="required" minlength="10" /></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Wiadomość:</td>
+                                <td><textarea name="msg" class="required" minlength="20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum 
+                        enim ut risus molestie nec pretium urna faucibus. Donec malesuada, neque 
+                        sit amet sodales tincidunt, eros velit lobortis nibh, sed pellentesque lorem 
+                        enim eget sapien. Ut scelerisque faucibus metus, et varius elit luctus quis. 
+                        Etiam fermentum, erat vitae porta ornare, metus nisi sodales urna, eget 
+                        egestas ligula velit quis lorem. Nunc vestibulum tempus porta. Integer 
+                        scelerisque malesuada lacus tempor mollis. Quisque convallis ornare purus, 
+                        nec lacinia massa euismod vitae.
+                       </textarea></td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td>
+                                <td><input type="checkbox" checked="true" id="sent-to-me" /><label for="sent-to-me">Wyślij mi kopię tej wiadomości</label>
+                                <td></td>
+                            </tr>
+                            
+                        </tbody>
+                        
+                    </table>
+                    
+                       <br /><br />
+                       
+                       <input type="submit" name="submit-form" class="submit-form" value="Wyślij wiadomość" />
+                       </form>
+                       <br /><br /><br /><br />
+                    
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+    	<div class="content">
+       	  <p id="footer-image"><a href="#"><img src="images/przycisk-produkty.jpg" alt="pobierz cennik" /></a></p>
+        	<ul>
+            	<li><a href="#">Webdesign</a></li>
+            	<li><a href="#">e-commerce</a></li>
+            	<li><a href="#">Corporate design</a></li>
+            	<li><a href="#">Kampanie AdWords</a></li>
+            	<li><a href="#">Marketing internetowy</a></li>
+            	<li><a href="#">Usługi hostingowe</a></li>
+            	<li><a href="#">Analizy biznesowe</a></li>
+            	<li><a href="#">Pozycjonowanie</a></li>
+            	<li><a href="#">Raporty skuteczności</a></li>
+            </ul>
+            <p id="footer-copyright">Copyright &copy; 2011 Designer: Grzegorz Róg | Coder: Mateusz Manaj</p>
+        </div>
+    </div>
+     
+</body>
+</html>

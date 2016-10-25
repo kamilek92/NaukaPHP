@@ -31,7 +31,7 @@ define("Slesz", "/", true);
 define("ClassFolder", "Class".Slesz, true);
 
 function __autoload($naza){
-    include_once (ClassFolder.$naza."class.php");
+    @include_once (ClassFolder.$naza.".php");
 }
 
 ?>
